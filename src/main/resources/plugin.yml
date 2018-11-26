@@ -7,10 +7,17 @@ main: idk.plugin.scale.Main
 commands:
   scale:
     description: Change your size
-    usage: "/scale <size>"
+    usage: "/scale <size> [entity id]"
     permission: scale.edit
+  geteid:
+    description: Change your size
+    usage: "/geteid"
+    permission: scale.eid
 
 permissions:
   scale.edit:
     description: "Allows player to use /scale"
+    default: op
+  scale.eid:
+    description: "Allows player to use /geteid"
     default: op

@@ -1,2 +1,7 @@
-maxScale: 40
-minScale: 0
+### WARNING: setting any of these values too high/low can cause game/server crashing and glitching ###
+###          it's not recommended to keep anti cheat on while using this plugin                    ###
+
+# maxium scale that player can set, set very high to see crashes
+maxScale: 40.0
+# minium scale that player can set, set lower than 0 to see interesting things happen
+minScale: 0.1
