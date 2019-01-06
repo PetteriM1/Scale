@@ -58,24 +58,32 @@ public class Main extends PluginBase implements Listener {
                 }
 
                 if (args.length == 2) {
-                    try {
-                        eid = Float.parseFloat(args[1]);
-                    } catch (NumberFormatException e) {
-                        p.sendMessage("\u00A7cEntity id must be a float");
-                        return true;
-                    }
+                    Player pl = getServer().getPlayer(args[1]);
 
-                    for (Level l : getServer().getLevels().values()) {
-                        for (Entity e : l.getEntities()) {
-                            if (e.getId() == eid) {
-                                e.setScale(scale);
-                                p.sendMessage("\u00A7aEntity's scale changed to " + scale);
-                                return true;
+                    if (pl != null) {
+                        pl.setScale(scale);
+                        p.sendMessage("\u00A7aPlayer's scale changed to " + scale);
+                        return true;
+                    } else {
+                        try {
+                            eid = Float.parseFloat(args[1]);
+                        } catch (NumberFormatException e) {
+                            p.sendMessage("\u00A7cEntity id must be a float");
+                            return true;
+                        }
+
+                        for (Level l : getServer().getLevels().values()) {
+                            for (Entity e : l.getEntities()) {
+                                if (e.getId() == eid) {
+                                    e.setScale(scale);
+                                    p.sendMessage("\u00A7aEntity's scale changed to " + scale);
+                                    return true;
+                                }
                             }
                         }
                     }
 
-                    p.sendMessage("\u00A7cNo entity found with id " + eid);
+                    p.sendMessage("\u00A7cEntity not found");
                     return true;
                 } else {
                     p.setScale(scale);

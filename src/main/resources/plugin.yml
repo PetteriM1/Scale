@@ -7,7 +7,7 @@ main: idk.plugin.scale.Main
 commands:
   scale:
     description: Change your size
-    usage: "/scale <size> [entity id]"
+    usage: "/scale <size> [entity id|player]"
     permission: scale.edit
   geteid:
     description: Change your size
