@@ -38,7 +38,7 @@ public class Main extends PluginBase implements Listener {
                 }
 
                 float scale = 1;
-                float eid = 0;
+                long eid = 0;
 
                 try {
                     scale = Float.parseFloat(args[0]);
@@ -66,9 +66,9 @@ public class Main extends PluginBase implements Listener {
                         return true;
                     } else {
                         try {
-                            eid = Float.parseFloat(args[1]);
+                            eid = Long.parseLong(args[1]);
                         } catch (NumberFormatException e) {
-                            p.sendMessage("\u00A7cEntity id must be a float");
+                            p.sendMessage("\u00A7cInvalid entity id");
                             return true;
                         }
 
@@ -115,8 +115,6 @@ public class Main extends PluginBase implements Listener {
     @EventHandler
     public void quit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        if (interactMode.contains(p.getName())) {
-            interactMode.remove(p.getName());
-        }
+        interactMode.remove(p.getName());
     }
 }
